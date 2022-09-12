@@ -1,6 +1,7 @@
 :root{
   --primary-color: #707070;
   --secondary-color: #888888;
+  --terciary-color: #00000029;
   --white: #ffffff;
 }
 
@@ -15,12 +16,13 @@ body{
 }
 
 header.header{
-  padding: 60px 0 125px;
+  padding: 45px 0 125px;
   text-align: center;
   background-color: var(--primary-color);
   color: var(--white);
   position: relative;
   z-index: -2;
+  overflow-x: hidden;
 
   h1.title{
     font-weight: 600;
@@ -54,6 +56,7 @@ header.header{
           padding: 10px 0;
           margin: 0 25px;
           font-size: 0.8em;
+          border: 1px solid var(--terciary-color);
           border-radius: 3px;
         }
       }
@@ -66,9 +69,130 @@ header.header{
     width: 200%;
     height: 150px;
     bottom: -85px;
-    left: -50%;
+    right: -55%;
     background-color: var(--white);
-    transform: rotateZ(5deg);
+    transform: rotateZ(4deg);
+    z-index: -1;
+  }
+}
+
+section.paragraph-form{
+  display: flex;
+  width: 900px;
+  margin: auto;
+  color: var(--secondary-color);
+  padding-bottom: 75px;
+
+  div.paragraph{
+    width: 60%;
+    padding-right: 55px;
+
+    h3.title{
+      padding-bottom: 25px;
+      font-size: 1.2em;
+      font-weight: 100;
+    }
+
+    p.text{
+      font-size: 0.7em;
+      font-weight: 100;
+      line-height: 1.5em;
+
+      span{
+        display: block;
+        padding-top: 20px;
+      }
+    }
+  }
+
+  div.form{
+    width: 40%;
+    
+    form{
+
+      label{
+        font-size: 0.7em;
+        display: block;
+        margin-bottom: 5px;
+      }
+
+      input{
+        width: 100%;
+        padding: 5px;
+        outline: none;
+        border: 1px solid var(--primary-color);
+        margin-bottom: 20px;
+      }
+
+      div{
+        display: flex;
+        .genders{
+          display: flex;
+          justify-content: left;
+          width: 30%;
+  
+          input{
+            width: 15px;
+            margin-right: 5px;
+          }
+        }
+      }
+
+      button{
+        width: 100%;
+        padding: 10px 0;
+        outline: none;
+        border: 1px solid var(--primary-color);
+        border-radius: 5px;
+        background-color: var(--white);
+        color: var(--secondary-color);
+        font-size: 0.9em;
+      }
+    }
+  }
+
+  div.enviado{
+    display: none;
+  }
+}
+
+
+main.products{
+  width: 900px;
+  text-align: center;
+  margin: auto;
+  color: var(--secondary-color);
+  position: relative;
+  
+  div.title{
+    width: fit-content;
+    margin: auto;
+    background-color: var(--white);
+    z-index: 0;
+
+    h2.sect-title{
+      font-size: 1.1em;
+      display: inline-block;
+      padding: 0 15px;
+    }
+
+  }
+
+
+
+
+
+
+
+
+  &::before{
+    content: '';
+    width: 100%;
+    height: 1px;
+    background-color: var(--primary-color);
+    position: absolute;
+    top: 9px;
+    left: 0;
     z-index: -1;
   }
 }
