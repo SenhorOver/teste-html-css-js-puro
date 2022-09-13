@@ -152,6 +152,7 @@ section.paragraph-form{
         background-color: var(--white);
         color: var(--secondary-color);
         font-size: 1em;
+        cursor: pointer;
       }
     }
   }
@@ -207,11 +208,14 @@ main.products{
       li{
         width: 22%;
         text-align: left;
-        padding-bottom: 35px;
+        padding-bottom: 50px;
         color: var(--secondary-color);
         div.img{
           width: 100%;
           border: 1px solid var(--primary-color);
+          img{
+            width: 100%;
+          }
         }
 
         div.description{
@@ -253,6 +257,7 @@ main.products{
           color: var(--secondary-color);
           font-size: 1em;
           padding: 5px 0;
+          cursor: pointer;
         }
       }
     }
@@ -266,6 +271,7 @@ main.products{
       font-size: 1em;
       width: 30%;
       padding: 8px 0;
+      cursor: pointer;
     }
   }
 
@@ -347,6 +353,7 @@ section.share{
         background-color: var(--white);
         width: 30%;
         padding: 8px 0;
+        cursor: pointer;
       }
     }
   }
