@@ -25,7 +25,6 @@
         <div class="cut"></div>
     </header>
 
-
     <section class="paragraph-form">
         <div class="paragraph">
             <h3 class="title">Ajude o algorítimo a ser mais certeiro</h3>
@@ -69,20 +68,96 @@
                     </div>
                 </div>
 
-                <button type="submit">Enviar</button>
+                <button type="submit" id="info-btn">Enviar</button>
             </form>
         </div>
 
-        <div class="enviado"></div>
+        <div class="enviado none">
+            <h3 class="title">
+                Obrigado pela colaboração!
+            </h3>
+
+            <p class="text">
+                Sua ajuda e essas informações nos ajudarão muito na construção de um algorítimo melhor e mais eficiente
+            </p>
+        </div>
     </section>
 
     <main class="products">
         <div class="title">
             <h2 class="sect-title">Sua seleção especial</h2>
         </div>
+
+
+        <div class="list-products">
+            <ul>
+                <li class="item">
+                    <div class="img">
+                        <img src="" alt="">
+                    </div>
+                    <div class="description">
+                        <h4 class="title">
+                            Nome do produto
+                        </h4>
+                        <p class="text">
+                            Descrição do produto um pouco maior, com duas linhas ou três que explica melhor do que se trata.
+                        </p>
+                    </div>
+                    <div class="prices">
+                        <span>De: R$23,99</span>
+                        Por: R$19,99
+                        <span>ou 2x de R$9,99</span>
+                    </div>
+                    <button class="buy">Comprar</button>
+                </li>    
+            </ul>
+
+            <button class="show-more" id="mp-btn">Ainda mais produtos aqui!</button>
+        </div>
     </main>
 
+    <section class="share">
+        <div class="sect-title">
+            <h3 class="title">
+                Compartilhe a novidade
+            </h3>
+        </div>
 
+        <p class="text">Quer que seus amigos também ganhem a lista personalizada deles? Preencha agora!</p>
+
+        <div class="form">
+            <form action="#" method="get">
+                <div class="flex">
+                    <div>
+                        <label for="input-text-1">Nome do seu amigo:</label>
+                        <input type="text" id="input-text-1">
+                    </div>
+        
+                    <div>
+                        <label for="input-email-2">Email:</label>
+                        <input type="email" id="input-email-2">
+                    </div>
+                </div>
+    
+                <button type="submit" id="share-btn">Enviar agora</button>
+            </form>
+        </div>
+
+        <div class="thanks none">
+            <h3 class="title">Obrigado pela colaboração!</h3>
+            <p class="text">A sua ajuda e de seus amigos é muito importante na construção de um algorítimo mais eficiente</p>
+        </div>
+    </section>
+
+
+    <footer class="footer">
+        <div class="cut"></div>
+        <div class="content">
+            Testando suas habilidades em HTML, CSS e JS
+            <span>Linx Impulse</span>
+            2019
+        </div>
+    </footer>
 
 
     <script src="assets/js/main.js"></script>
