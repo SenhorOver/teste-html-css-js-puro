@@ -19,6 +19,11 @@ body{
   display: none;
 }
 
+::placeholder{
+  color: red;
+  opacity: 0.8;
+}
+
 header.header{
   padding: 45px 0 125px;
   text-align: center;
@@ -96,6 +101,10 @@ section.paragraph-form{
       padding-bottom: 25px;
       font-size: 1.2em;
       font-weight: 100;
+
+      p{
+        display: none;
+      }
     }
 
     p.text{
@@ -127,6 +136,11 @@ section.paragraph-form{
         outline: none;
         border: 1px solid var(--primary-color);
         margin-bottom: 20px;
+
+          &.error{
+            border: 1px solid red;
+            color: red; 
+          }
       }
 
       div{
@@ -339,6 +353,11 @@ section.share{
             outline: none;
             border: 1px solid var(--primary-color);
             padding: 5px;
+
+            &.error{
+              color: red;
+              border-color: red;
+            }
           }
         }
       }
@@ -405,4 +424,102 @@ footer{
       padding: 5px 0;
     }
   }
+}
+
+
+
+@media (max-width: 910px) {
+  section.paragraph-form{
+    width: 750px;
+  }
+
+  main.products{
+    width: 750px;
+  }
+
+  section.share{
+    width: 750px;
+  }
+}
+
+@media(max-width: 775px){
+  
+    body{
+      font-size: 15px;
+    }
+    header.header{
+      padding-bottom: 25px;
+      text-align: left;
+
+      h1.title{
+        width: 92%;
+        margin: auto;
+      }
+
+      span.subtitle{
+        display: block;
+        width: 92%;
+        margin: auto;
+      }
+      nav{
+        ul.menu{
+          flex-wrap: wrap;
+          justify-content: space-around;
+          li{
+            width: 40%;
+            margin-bottom: 25px;
+            a{
+              text-align: center;
+              margin: auto; 
+              border: 1px solid var(--secondary-color);
+            }
+          }
+        }
+      }
+
+      div.cut{
+        transform: rotateZ(12deg);
+      }
+    }
+
+    section.paragraph-form{
+      width: 100vw;
+      flex-direction: column;
+      justify-content: center;
+      div.paragraph{
+        width: 100%;
+        padding: 0 15px 30px;
+
+        h3.title{
+          p{
+            display: inline-block;
+            margin-left: 5px;
+            transform: translateY(-10%);
+            i.arrow{
+              border: solid var(--primary-color);
+              border-width: 0 2px 2px 0;
+              display: inline-block;
+              padding: 3px;
+            }
+            i.down {
+              transform: rotate(45deg);
+              -webkit-transform: rotate(45deg);
+            }
+          }
+        }
+      }
+
+      div.form{
+        width: 100%;
+        padding: 0 15px;
+      }
+    }
+
+    main.products{
+      width: 100%;
+    }
+  
+    section.share{
+      width: 100%;
+    }
 }

@@ -19,6 +19,21 @@ body {
   display: none;
 }
 
+::-moz-placeholder {
+  color: red;
+  opacity: 0.8;
+}
+
+:-ms-input-placeholder {
+  color: red;
+  opacity: 0.8;
+}
+
+::placeholder {
+  color: red;
+  opacity: 0.8;
+}
+
 header.header {
   padding: 45px 0 125px;
   text-align: center;
@@ -88,6 +103,9 @@ section.paragraph-form div.paragraph h3.title {
   font-size: 1.2em;
   font-weight: 100;
 }
+section.paragraph-form div.paragraph h3.title p {
+  display: none;
+}
 section.paragraph-form div.paragraph p.text {
   font-size: 0.7em;
   font-weight: 100;
@@ -111,6 +129,10 @@ section.paragraph-form div.form form input {
   outline: none;
   border: 1px solid var(--primary-color);
   margin-bottom: 20px;
+}
+section.paragraph-form div.form form input.error {
+  border: 1px solid red;
+  color: red;
 }
 section.paragraph-form div.form form div {
   display: flex;
@@ -296,6 +318,10 @@ section.share div.form form div.flex div input {
   border: 1px solid var(--primary-color);
   padding: 5px;
 }
+section.share div.form form div.flex div input.error {
+  color: red;
+  border-color: red;
+}
 section.share div.form form button {
   margin-top: 50px;
   outline: none;
@@ -351,4 +377,84 @@ footer div.content {
 footer div.content span {
   display: block;
   padding: 5px 0;
+}
+
+@media (max-width: 910px) {
+  section.paragraph-form {
+    width: 750px;
+  }
+  main.products {
+    width: 750px;
+  }
+  section.share {
+    width: 750px;
+  }
+}
+@media (max-width: 775px) {
+  body {
+    font-size: 15px;
+  }
+  header.header {
+    padding-bottom: 25px;
+    text-align: left;
+  }
+  header.header h1.title {
+    width: 92%;
+    margin: auto;
+  }
+  header.header span.subtitle {
+    display: block;
+    width: 92%;
+    margin: auto;
+  }
+  header.header nav ul.menu {
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  header.header nav ul.menu li {
+    width: 40%;
+    margin-bottom: 25px;
+  }
+  header.header nav ul.menu li a {
+    text-align: center;
+    margin: auto;
+    border: 1px solid var(--secondary-color);
+  }
+  header.header div.cut {
+    transform: rotateZ(12deg);
+  }
+  section.paragraph-form {
+    width: 100vw;
+    flex-direction: column;
+    justify-content: center;
+  }
+  section.paragraph-form div.paragraph {
+    width: 100%;
+    padding: 0 15px 30px;
+  }
+  section.paragraph-form div.paragraph h3.title p {
+    display: inline-block;
+    margin-left: 5px;
+    transform: translateY(-10%);
+  }
+  section.paragraph-form div.paragraph h3.title p i.arrow {
+    border: solid var(--primary-color);
+    border-width: 0 2px 2px 0;
+    display: inline-block;
+    padding: 3px;
+  }
+  section.paragraph-form div.paragraph h3.title p i.down {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+  }
+  section.paragraph-form div.form {
+    width: 100%;
+    padding: 0 15px;
+  }
+  main.products {
+    width: 100%;
+  }
+  section.share {
+    width: 100%;
+  }
 }/*# sourceMappingURL=style.css.map */

@@ -14,17 +14,23 @@ const Main = {
     },
 
     bindEvents(){
-        this.infoBtn.onclick = this.Events.click_thanksMsg
-        this.shareBtn.onclick = this.Events.click_thanksMsg
+        this.infoBtn.onclick = this.Events.click_thanksMsg.bind(this)
+        this.shareBtn.onclick = this.Events.click_thanksMsg.bind(this)
         this.mpBtn.onclick = this.Events.click_showProducts.bind(this)
     },
 
-    //TODO: Terminei envio com fetch, não gostei de ter que usar muitos Main, pois não conseguia acessar com this, mas pelo menos funciona
-    //TODO: FAZER VALIDAÇÕES DE FORMULÁRIO E DEPOIS DISSO FAZER CSS PARA MOBILE
     Events: {
         click_thanksMsg(e){
             e.preventDefault()
-            if(false){
+            let validEmpty = true
+            let validCpf = true
+            let validEmail = true
+
+            validEmpty = this.Validacoes.empty(e)
+            validCpf = this.Validacoes.cpf(e)
+            validEmail = this.Validacoes.email(e)
+
+            if(validEmpty && validCpf && validEmail){
                 const el = e.target
                 const parentEl = el.parentElement.parentElement
                 const thanksMsg = parentEl.nextElementSibling
@@ -34,13 +40,67 @@ const Main = {
             }
         },
 
-        click_showProducts(e){
+        click_showProducts(){
             this.execFetch(this.page, this.JSON.pegarJSON, this.JSON.newPage, this.JSON.error)
         }
     },
 
     Validacoes: {
+        empty(e){
+            let valid = true
+            const form = e.target.parentElement
+            const inputs = form.querySelectorAll('.inp-name')
+            inputs.forEach(el => {
+                if(!el.value) {
+                    el.classList.add('error')
+                    el.setAttribute('placeholder','Digite uma informação válida')
+                    valid = false
+                    return valid
+                }
+                el.classList.remove('error')
+                el.setAttribute('placeholder','')
+            })
+            return valid
+        },
 
+        cpf(e){
+            let valid = true
+            const form = e.target.parentElement
+            const inputs = form.querySelectorAll('.inp-name')
+            inputs.forEach(el => {
+                if(el.previousElementSibling.innerText === 'CPF:') {
+                    const teste = new ValidaCPF(el.value)
+                    if(teste.valida()){
+                        el.classList.remove('error')
+                        el.setAttribute('placeholder','')
+                        return
+                    }
+                    el.classList.add('error')
+                    el.setAttribute('placeholder','Digite um CPF válido')
+                    valid = false
+                }
+            })
+            return valid
+        },
+
+        email(e){
+            let valid = true
+            const form = e.target.parentElement
+            const inputs = form.querySelectorAll('.inp-name')
+            inputs.forEach(el => {
+                if(el.previousElementSibling.innerText === 'E-mail:'){
+                    if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(el.value)){
+                        el.classList.add('error')
+                        el.setAttribute('placeholder','Digite um Email Válido')
+                        valid = false
+                        return
+                    }
+                    el.classList.remove('error')
+                    el.setAttribute('placeholder','')
+                }
+            })
+            return valid
+        }
     },
 
     JSON: {
@@ -54,8 +114,6 @@ const Main = {
                 productsUl.innerHTML += Main.UsefulMethods.mkProduct(el)
             });
             Main.page = `https://${e.nextPage}`
-            // Pra ser sinceso, acho que nesse caso era pra eu usar main sim, pois se eu tiver com outro objeto, eu vou chamar o nome desse outro objeto, então aqui o que
-            // faz sentido é eu chamar o nome do próprio objeto
         },
 
         error(){
@@ -99,4 +157,3 @@ const Main = {
 }
 
 Main.init()
-

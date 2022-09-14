@@ -27,7 +27,7 @@
 
     <section class="paragraph-form">
         <div class="paragraph">
-            <h3 class="title">Ajude o algorítimo a ser mais certeiro</h3>
+            <h3 class="title">Ajude o algorítimo a ser mais certeiro <p><i class="arrow down"></i></p></h3>
             <p class="text">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ultricies tellus nec mi porta
                 convallis sollicitudin eu urna. Mauris rhoncus erat sed interdum dignissim. Suspendisse semper pretium
@@ -51,7 +51,7 @@
                 <input type="text" id="input-name-1" class="inp-name">
     
                 <label for="input-email-1">E-mail:</label>
-                <input type="email" id="input-email-1" class="inp-name">
+                <input type="text" id="input-email-1" class="inp-name">
     
                 <label for="input-cpf-1">CPF:</label>
                 <input type="text" id="input-cpf-1" class="inp-name">
@@ -82,7 +82,10 @@
             </p>
         </div>
     </section>
-
+    <!-- TODO: Estou agora fazendo o site para mobile, já fiz o header e a primeira section,
+        TODO: Agora preciso pensar em um jeito para fazer aparecer só quatro e mostrar de 4 em 4
+        TODO: Também tenho que colocar o evento de click para mostrar o texto da section acima
+    -->
     <main class="products">
         <div class="title">
             <h2 class="sect-title">Sua seleção especial</h2>
@@ -130,12 +133,12 @@
                 <div class="flex">
                     <div>
                         <label for="input-text-1">Nome do seu amigo:</label>
-                        <input type="text" id="input-text-1">
+                        <input type="text" id="input-text-1" class="inp-name">
                     </div>
         
                     <div>
-                        <label for="input-email-2">Email:</label>
-                        <input type="email" id="input-email-2">
+                        <label for="input-email-2">E-mail:</label>
+                        <input type="email" id="input-email-2" class="inp-name">
                     </div>
                 </div>
     
@@ -159,7 +162,7 @@
         </div>
     </footer>
 
-
+    <script src="assets/js/validaCPF.js"></script>
     <script src="assets/js/main.js"></script>
 </body>
 
