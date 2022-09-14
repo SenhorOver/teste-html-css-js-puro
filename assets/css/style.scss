@@ -231,47 +231,53 @@ main.products{
             width: 100%;
           }
         }
+        div.content{
 
-        div.description{
-          padding: 10px 0;
-          h4.title{
-            font-weight: 100;
-            font-size: 0.85em;
-            padding-bottom: 10px;
-          }
-
-          p.text{
-            font-size: 0.75em;
-          }
-        }
-
-        div.prices{
-          font-size: 1em;
-          font-weight: 600;
-          padding-bottom: 5px;
-
-          span{
-            display: block;
-            font-weight: 100;
-            font-size: 0.75em;
-            padding-bottom: 5px;
-
-            &:last-child{
-              padding: 5px 0;
+          div.description{
+            padding: 10px 0;
+            h4.title{
+              font-weight: 100;
+              font-size: 0.85em;
+              padding-bottom: 10px;
+            }
+  
+            p.text{
+              font-size: 0.75em;
             }
           }
+  
+          div.prices{
+            font-size: 1em;
+            font-weight: 600;
+            padding-bottom: 5px;
+  
+            span{
+              display: block;
+              font-weight: 100;
+              font-size: 0.75em;
+              padding-bottom: 5px;
+  
+              &:last-child{
+                padding: 5px 0;
+              }
+            }
+          }
+  
+          button.buy{
+            width: 100%;
+            outline: none;
+            border-radius: 5px;
+            border: 1px solid var(--primary-color);
+            background-color: var(--white);
+            color: var(--secondary-color);
+            font-size: 1em;
+            padding: 5px 0;
+            cursor: pointer;
+          }
         }
 
-        button.buy{
-          width: 100%;
-          outline: none;
-          border-radius: 5px;
-          border: 1px solid var(--primary-color);
-          background-color: var(--white);
-          color: var(--secondary-color);
-          font-size: 1em;
-          padding: 5px 0;
-          cursor: pointer;
+        &.none{
+          display: none;
         }
       }
     }
@@ -478,7 +484,8 @@ footer{
       }
 
       div.cut{
-        transform: rotateZ(12deg);
+        transform: rotateZ(12deg) translate(-20%, 22%); 
+        height: 200px;
       }
     }
 
@@ -505,6 +512,11 @@ footer{
               transform: rotate(45deg);
               -webkit-transform: rotate(45deg);
             }
+
+            i.up {
+              transform: rotate(-135deg);
+              -webkit-transform: rotate(-135deg);
+            }
           }
         }
       }
@@ -517,9 +529,101 @@ footer{
 
     main.products{
       width: 100%;
+      padding: 0 15px;
+      div.list-products{
+        button.show-more{
+          width: 60%;
+        }
+      }
     }
   
     section.share{
       width: 100%;
+      padding: 0 15px;
+      div.form{
+        form{
+          div.flex{
+            width: 100%;
+            margin: 0;
+            flex-direction: column;
+            div{
+              width: 100%;
+              padding-bottom: 25px;
+              label{
+                font-size: 0.8em;
+              }
+            }
+
+          }
+          button{
+            width: 60%;
+          }
+        }
+      }
     }
+
+    footer.footer{
+      div.cut{
+        transform: rotateZ(-5deg) translate(0, 22%); 
+        height: 200px;
+      }
+    }
+}
+
+@media (max-width: 501px){
+
+  main.products{
+    div.list-products{
+      ul{
+        flex-direction: column;
+        li{
+          width: 100%;
+          display: flex;
+          padding-bottom: 35px;
+
+          div.img{
+            margin-right: 15px;
+            width: 45%;
+            height: auto;
+
+          }
+          div.content{
+            position: relative;
+            width: 60%;
+            div.description{
+              padding-top: 0;
+              h4.title{
+                font-size: 0.9em;
+              }
+              p.text{
+                display: none;
+              }
+            }
+
+            div.prices{
+              font-size: 17px;
+            }
+
+            button.buy{
+              position: absolute;
+              bottom: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  section.share{
+    p.text{
+      font-size: 0.8em;
+    }
+  }
+
+  footer.footer{
+    padding-bottom: 35px;
+    div.content{
+      padding-top: 50px;
+    }
+  }
 }

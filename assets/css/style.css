@@ -212,32 +212,32 @@ main.products div.list-products ul li div.img {
 main.products div.list-products ul li div.img img {
   width: 100%;
 }
-main.products div.list-products ul li div.description {
+main.products div.list-products ul li div.content div.description {
   padding: 10px 0;
 }
-main.products div.list-products ul li div.description h4.title {
+main.products div.list-products ul li div.content div.description h4.title {
   font-weight: 100;
   font-size: 0.85em;
   padding-bottom: 10px;
 }
-main.products div.list-products ul li div.description p.text {
+main.products div.list-products ul li div.content div.description p.text {
   font-size: 0.75em;
 }
-main.products div.list-products ul li div.prices {
+main.products div.list-products ul li div.content div.prices {
   font-size: 1em;
   font-weight: 600;
   padding-bottom: 5px;
 }
-main.products div.list-products ul li div.prices span {
+main.products div.list-products ul li div.content div.prices span {
   display: block;
   font-weight: 100;
   font-size: 0.75em;
   padding-bottom: 5px;
 }
-main.products div.list-products ul li div.prices span:last-child {
+main.products div.list-products ul li div.content div.prices span:last-child {
   padding: 5px 0;
 }
-main.products div.list-products ul li button.buy {
+main.products div.list-products ul li div.content button.buy {
   width: 100%;
   outline: none;
   border-radius: 5px;
@@ -247,6 +247,9 @@ main.products div.list-products ul li button.buy {
   font-size: 1em;
   padding: 5px 0;
   cursor: pointer;
+}
+main.products div.list-products ul li.none {
+  display: none;
 }
 main.products div.list-products button.show-more {
   outline: none;
@@ -421,7 +424,8 @@ footer div.content span {
     border: 1px solid var(--secondary-color);
   }
   header.header div.cut {
-    transform: rotateZ(12deg);
+    transform: rotateZ(12deg) translate(-20%, 22%);
+    height: 200px;
   }
   section.paragraph-form {
     width: 100vw;
@@ -447,14 +451,86 @@ footer div.content span {
     transform: rotate(45deg);
     -webkit-transform: rotate(45deg);
   }
+  section.paragraph-form div.paragraph h3.title p i.up {
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+  }
   section.paragraph-form div.form {
     width: 100%;
     padding: 0 15px;
   }
   main.products {
     width: 100%;
+    padding: 0 15px;
+  }
+  main.products div.list-products button.show-more {
+    width: 60%;
   }
   section.share {
     width: 100%;
+    padding: 0 15px;
+  }
+  section.share div.form form div.flex {
+    width: 100%;
+    margin: 0;
+    flex-direction: column;
+  }
+  section.share div.form form div.flex div {
+    width: 100%;
+    padding-bottom: 25px;
+  }
+  section.share div.form form div.flex div label {
+    font-size: 0.8em;
+  }
+  section.share div.form form button {
+    width: 60%;
+  }
+  footer.footer div.cut {
+    transform: rotateZ(-5deg) translate(0, 22%);
+    height: 200px;
+  }
+}
+@media (max-width: 501px) {
+  main.products div.list-products ul {
+    flex-direction: column;
+  }
+  main.products div.list-products ul li {
+    width: 100%;
+    display: flex;
+    padding-bottom: 35px;
+  }
+  main.products div.list-products ul li div.img {
+    margin-right: 15px;
+    width: 45%;
+    height: auto;
+  }
+  main.products div.list-products ul li div.content {
+    position: relative;
+    width: 60%;
+  }
+  main.products div.list-products ul li div.content div.description {
+    padding-top: 0;
+  }
+  main.products div.list-products ul li div.content div.description h4.title {
+    font-size: 0.9em;
+  }
+  main.products div.list-products ul li div.content div.description p.text {
+    display: none;
+  }
+  main.products div.list-products ul li div.content div.prices {
+    font-size: 17px;
+  }
+  main.products div.list-products ul li div.content button.buy {
+    position: absolute;
+    bottom: 0;
+  }
+  section.share p.text {
+    font-size: 0.8em;
+  }
+  footer.footer {
+    padding-bottom: 35px;
+  }
+  footer.footer div.content {
+    padding-top: 50px;
   }
 }/*# sourceMappingURL=style.css.map */

@@ -11,12 +11,14 @@ const Main = {
         this.infoBtn = document.querySelector('#info-btn')
         this.shareBtn = document.querySelector('#share-btn')
         this.mpBtn = document.querySelector('#mp-btn')
+        this.shTxt = document.querySelector('#sh-text')
     },
 
     bindEvents(){
         this.infoBtn.onclick = this.Events.click_thanksMsg.bind(this)
         this.shareBtn.onclick = this.Events.click_thanksMsg.bind(this)
         this.mpBtn.onclick = this.Events.click_showProducts.bind(this)
+        this.shTxt.onclick = this.Events.click_showText.bind(this)
     },
 
     Events: {
@@ -40,8 +42,27 @@ const Main = {
             }
         },
 
-        click_showProducts(){
+        click_showProducts(e){
+            const ul = e.target.previousElementSibling
+            const inputs = ul.querySelectorAll('.none')
+            if(inputs.length){
+                this.UsefulMethods.rmNone(inputs)
+                return
+            }
             this.execFetch(this.page, this.JSON.pegarJSON, this.JSON.newPage, this.JSON.error)
+        },
+
+        click_showText(e){
+            const text = document.querySelector('#text')
+            const i = document.querySelector('.arrow')
+            if(text.classList.contains('none')) {
+                i.classList.remove('down')
+                i.classList.add('up')
+                return text.classList.remove('none')
+            }
+            text.classList.add('none')
+            i.classList.add('down')
+            i.classList.remove('up')
         }
     },
 
@@ -88,7 +109,7 @@ const Main = {
             const form = e.target.parentElement
             const inputs = form.querySelectorAll('.inp-name')
             inputs.forEach(el => {
-                if(el.previousElementSibling.innerText === 'E-mail:'){
+                if(el.previousElementSibling.innerText === 'E-mail:' || el.previousElementSibling.innerText === 'E-mail dele:'){
                     if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(el.value)){
                         el.classList.add('error')
                         el.setAttribute('placeholder','Digite um Email Válido')
@@ -109,6 +130,18 @@ const Main = {
         },
 
         newPage(e){
+            if(window.innerWidth < 501){
+                productsUl = document.querySelector('#products-list')
+                e.products.forEach((el,ix) => {
+                    if(ix > 3){
+                        productsUl.innerHTML += Main.UsefulMethods.mkProduct(el, 'true')
+                        return
+                    }
+                    productsUl.innerHTML += Main.UsefulMethods.mkProduct(el)
+                });
+                Main.page = `https://${e.nextPage}`
+                return
+            }
             productsUl = document.querySelector('#products-list')
             e.products.forEach(el => {
                 productsUl.innerHTML += Main.UsefulMethods.mkProduct(el)
@@ -123,29 +156,62 @@ const Main = {
     },
 
     UsefulMethods:{
-        mkProduct(el){
+        mkProduct(el, none){
+            if(none){
+                return `
+                <li class="item none">
+                        <div class="img">
+                            <img src="${el.image}" alt="">
+                        </div>
+                        <div class="content">
+                            <div class="description">
+                                <h4 class="title">
+                                    ${el.name}
+                                </h4>
+                                <p class="text">
+                                    ${el.description}
+                                </p>
+                            </div>
+                            <div class="prices">
+                                <span>De: ${el.oldPrice.toFixed(2)}</span>
+                                Por: ${el.price.toFixed(2)}
+                                <span>ou ${el.installments.count}x de R$${el.installments.value.toFixed(2)}</span>
+                            </div>
+                            <button class="buy">Comprar</button>
+                        <div>
+                    </li> 
+                `
+            }
             return `
             <li class="item">
                     <div class="img">
                         <img src="${el.image}" alt="">
                     </div>
-                    <div class="description">
-                        <h4 class="title">
-                            ${el.name}
-                        </h4>
-                        <p class="text">
-                            ${el.description}
-                        </p>
-                    </div>
-                    <div class="prices">
-                        <span>De: ${el.oldPrice.toFixed(2)}</span>
-                        Por: ${el.price.toFixed(2)}
-                        <span>ou ${el.installments.count}x de R$${el.installments.value.toFixed(2)}</span>
-                    </div>
-                    <button class="buy">Comprar</button>
+                    <div class="content">
+                        <div class="description">
+                            <h4 class="title">
+                                ${el.name}
+                            </h4>
+                            <p class="text">
+                                ${el.description}
+                            </p>
+                        </div>
+                        <div class="prices">
+                            <span>De: ${el.oldPrice.toFixed(2)}</span>
+                            Por: ${el.price.toFixed(2)}
+                            <span>ou ${el.installments.count}x de R$${el.installments.value.toFixed(2)}</span>
+                        </div>
+                        <button class="buy">Comprar</button>
+                    <div>
                 </li> 
             `
         },
+
+        rmNone(inputs){
+            inputs.forEach(el => {
+                el.classList.remove('none')
+            })
+        }
     },
 
     execFetch(fetchLink, firstThen, secondThen, Error){
