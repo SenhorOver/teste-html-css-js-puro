@@ -17,4 +17,11 @@ Todos os passos da construção desse layout em ordem
 
 ### CSS
 
-- 
+- Prefiri utilizar SCSS para a estilização do site
+- Fiz 3 media queries, que servem para fazer pequenas alterações, e outros para alterações maiores no design do site para telas menores.
+- Foi utilizado o workflow desktop-first
+
+
+### JavaScript
+
+- Criei o objeto do site, esse objeto contém todos os métodos de eventos, validações, fetch, e tudo que é necessário para que torne esse site funcional.
